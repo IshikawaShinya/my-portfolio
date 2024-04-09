@@ -1,6 +1,15 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+  // ダークモードを無視できない。
+  // darkMode: 'media',
+  
+  // darkMode: 'class',
+  // darkMode: `false`,
+
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,11 +24,11 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       screens:{
+        sm:"500px",
         md:"768px",
         lg:"1024px",
       }
     },
   },
-  plugins: [],
 };
 export default config;
