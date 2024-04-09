@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 
 const navigation ={
     // register:{href:'/pages/register'},
-    loginsuccess:{href:'../homeLikeCorpratePage'},
+    loginsuccess:{href:'./features/homeLikeCorpratePage'},
     // passwordForgot:{href:'/pages/passwordForgot'}
   }
 
@@ -36,19 +36,20 @@ export default function Login() {
         .then(data => {
           setMessage(data.res)
           console.log(data.res)
+          setAlertMessage(String(data.res))
           switch (String(data.res)){
-            case 'empty':
+            case 'Email or Password is empty':
               setAlertMessage('メールを入力してください')
               break
-            case "success":
+            case "login success":
               router.push(navigation.loginsuccess.href)
               console.log('ログイン成功')
               break
-            case "wrong mail":
+            case "wrong email or password":
               setAlertMessage('登録したログイン名と異なります')
               break
             default :
-              setAlertMessage('読み込み完了')
+            //   setAlertMessage('読み込み完了')
               break
           }
         })
@@ -139,6 +140,15 @@ export default function Login() {
                   Sign in
                 </button>
               </div>
+              <div>
+              <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={()=>router.push(navigation.loginsuccess.href)}
+                >
+                  強制ログイン
+                </button>
+              </div>
             </form>
   
             <p className="mt-10 text-center text-sm text-gray-500">
@@ -152,6 +162,7 @@ export default function Login() {
             >
             get
             </button>
+            <p className='p-4'>{alertMessage}</p>
           </div>
         </div>
 
