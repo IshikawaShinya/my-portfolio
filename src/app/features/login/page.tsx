@@ -18,14 +18,14 @@ export default function Login() {
     const [alertMessage,setAlertMessage] = useState<string>('')
     const router = useRouter();
   
-    console.log(router)
+    // console.log(router)
 
     const pushLoginButton = () => {
         const body = {
           email:mail,
           password:password
         }
-        fetch('http://localhost:8000/signin',{
+        fetch('http://localhost:8000/signin/',{
           method:"POST",
           headers:{
             "Content-Type":"application/json"
@@ -34,25 +34,26 @@ export default function Login() {
         })
         .then(response => response.json())
         .then(data => {
-          setMessage(data.res)
-          console.log(data.res)
-          setAlertMessage(String(data.res))
-          switch (String(data.res)){
-            case 'Email or Password is empty':
-              setAlertMessage('メールを入力してください')
-              break
-            case "login success":
-              router.push(navigation.loginsuccess.href)
-              console.log('ログイン成功')
-              break
-            case "wrong email or password":
-              setAlertMessage('登録したログイン名と異なります')
-              break
-            default :
-            //   setAlertMessage('読み込み完了')
-              break
-          }
-        })
+        //   setMessage(data.res)
+            // console.log(data)
+            setAlertMessage(data)
+        //   switch (String(data.res)){
+        //     case 'Email or Password is empty':
+        //       setAlertMessage('メールを入力してください')
+        //       break
+        //     case "login success":
+        //       router.push(navigation.loginsuccess.href)
+        //       console.log('ログイン成功')
+        //       break
+        //     case "wrong email or password":
+        //       setAlertMessage('登録したログイン名と異なります')
+        //       break
+        //     default :
+        //     //   setAlertMessage('読み込み完了')
+        //       break
+        //   }
+        }
+        )
       }
 
       const get =()=>{
@@ -140,7 +141,8 @@ export default function Login() {
                   Sign in
                 </button>
               </div>
-              <div>
+              {/* 強制的ホーム画面に遷移 */}
+              {/* <div>
               <button
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -148,7 +150,7 @@ export default function Login() {
                 >
                   強制ログイン
                 </button>
-              </div>
+              </div> */}
             </form>
   
             <p className="mt-10 text-center text-sm text-gray-500">

@@ -5,11 +5,11 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
 const navigation = [
-    { name: 'Not me', href: 'https://taikis-blog.vercel.app/about' },
-    { name: 'Product', href: '/features/product' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
+  { name: 'Product', href: '/features/product' },
+  { name: 'Features', href: '#' },
+  { name: 'Marketplace', href: '#' },
+  { name: 'Company', href: '#' },
+  { name: 'Not me', href: 'https://taikis-blog.vercel.app/about' },
   ]
 export default function HomeLikeCorpratePage(){
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
