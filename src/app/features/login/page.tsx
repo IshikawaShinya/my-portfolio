@@ -20,7 +20,8 @@ export default function Login() {
   
     // console.log(router)
 
-    const pushLoginButton = () => {
+    const pushLoginButton = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
         const body = {
           email:mail,
           password:password
@@ -35,23 +36,23 @@ export default function Login() {
         .then(response => response.json())
         .then(data => {
         //   setMessage(data.res)
-            // console.log(data)
-            setAlertMessage(data)
-        //   switch (String(data.res)){
-        //     case 'Email or Password is empty':
-        //       setAlertMessage('メールを入力してください')
-        //       break
-        //     case "login success":
-        //       router.push(navigation.loginsuccess.href)
-        //       console.log('ログイン成功')
-        //       break
-        //     case "wrong email or password":
-        //       setAlertMessage('登録したログイン名と異なります')
-        //       break
-        //     default :
-        //     //   setAlertMessage('読み込み完了')
-        //       break
-        //   }
+            console.log(data)
+            // setAlertMessage(data)
+            switch (String(data.res)){
+                case 'Email or Password is empty':
+                setAlertMessage('メールを入力してください')
+                break
+                case "login success":
+                router.push(navigation.loginsuccess.href)
+                console.log('ログイン成功')
+                break
+                case "wrong email or password":
+                setAlertMessage('登録したログイン名と異なります')
+                break
+                default :
+                //   setAlertMessage('読み込み完了')
+                break
+            }
         }
         )
       }
@@ -134,7 +135,7 @@ export default function Login() {
   
               <div>
                 <button
-                  type="submit"
+                //   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   onClick={pushLoginButton}
                 >
@@ -142,7 +143,7 @@ export default function Login() {
                 </button>
               </div>
               {/* 強制的ホーム画面に遷移 */}
-              {/* <div>
+              <div>
               <button
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -150,7 +151,7 @@ export default function Login() {
                 >
                   強制ログイン
                 </button>
-              </div> */}
+              </div>
             </form>
   
             <p className="mt-10 text-center text-sm text-gray-500">
