@@ -40,14 +40,14 @@ export default function Login() {
             // setAlertMessage(data)
             switch (String(data.res)){
                 case 'Email or Password is empty':
-                setAlertMessage('メールを入力してください')
+                setAlertMessage('メールアドレスとパスワードを入力してください')
                 break
                 case "login success":
                 router.push(navigation.loginsuccess.href)
                 console.log('ログイン成功')
                 break
                 case "wrong email or password":
-                setAlertMessage('登録したログイン名と異なります')
+                setAlertMessage('メールアドレスかパスワードが異なります')
                 break
                 default :
                 //   setAlertMessage('読み込み完了')
@@ -141,16 +141,7 @@ export default function Login() {
                 >
                   Sign in
                 </button>
-              </div>
-              {/* 強制的ホーム画面に遷移 */}
-              <div>
-              <button
-                  type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={()=>router.push(navigation.loginsuccess.href)}
-                >
-                  強制ログイン
-                </button>
+                <p className='p-4 text-red-600'>{alertMessage}</p>
               </div>
             </form>
   
@@ -165,7 +156,6 @@ export default function Login() {
             >
             get
             </button>
-            <p className='p-4'>{alertMessage}</p>
           </div>
         </div>
 
