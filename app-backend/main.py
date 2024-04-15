@@ -15,7 +15,6 @@ app.add_middleware(
     allow_headers = ["*"]
 )
 
-
 # Dependency
 def get_db():
     db = SessionLocal()
@@ -54,10 +53,10 @@ def signin_user(user:schemas.UserCreate, db: Session = Depends(get_db)):
     # return {"res":"everything is fine"} 
 
 # サンプルコードで、今は未使用    
-# @app.get("/users/", response_model=list[schemas.User])
-# def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-#     users = crud.get_users(db, skip=skip, limit=limit)
-#     return users
+@app.get("/users/", response_model=list[schemas.User])
+def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    users = crud.get_users(db, skip=skip, limit=limit)
+    return users
 
 
 # @app.get("/users/{user_id}", response_model=schemas.User)

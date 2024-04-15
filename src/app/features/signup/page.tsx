@@ -1,25 +1,14 @@
 'use client'
 import { useState } from 'react'
-import { Transition } from '@headlessui/react'
-import { useTimeoutFn } from 'react-use'
-import Link from 'next/link'
 import { useRouter } from "next/navigation"
-
-const navigation ={
-    // register:{href:'/pages/register'},
-    loginsuccess:{href:'./features/homeLikeCorpratePage'},
-    signup:{href:'./features/signup'}
-    // passwordForgot:{href:'/pages/passwordForgot'}
+const navigation = {
+    loginsuccess:{href:'./features/login'},
   }
-
-export default function Login() {
-    const [message, setMessage] = useState('')
+export default function Signup() {
     const [mail,setMail] = useState('')
     const [password,setPassword] = useState('')
     const [alertMessage,setAlertMessage] = useState<string>('')
     const router = useRouter();
-  
-    // console.log(router)
 
     const pushLoginButton = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
@@ -71,10 +60,7 @@ export default function Login() {
         })
     }
 
-    return (
-        // <div className="h-full bg-white">
-        // </div>
-
+    return(
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
@@ -83,7 +69,7 @@ export default function Login() {
               alt="Your Company"
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Sign in to your account
+              SignUp
             </h2>
           </div>
   
@@ -113,11 +99,11 @@ export default function Login() {
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                     Password
                   </label>
-                  <div className="text-sm">
+                  {/* <div className="text-sm">
                     <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
                       Forgot password?
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="mt-2">
                   <input
@@ -140,20 +126,11 @@ export default function Login() {
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   onClick={pushLoginButton}
                 >
-                  Sign in
+                  Sign Up
                 </button>
                 <p className='p-4 text-red-600'>{alertMessage}</p>
               </div>
             </form>
-  
-            <p className="mt-10 text-center text-sm text-gray-500">
-              Not a member?{' '}
-                <button 
-                className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
-                onClick={()=>router.push(navigation.signup.href)}>
-                    Start a 14 day free trial
-                </button>
-            </p>
             <button
             onClick={get}
             >
@@ -162,6 +139,6 @@ export default function Login() {
           </div>
         </div>
 
+
     )
-  }
-  
+}
