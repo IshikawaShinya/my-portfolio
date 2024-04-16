@@ -1,14 +1,12 @@
 'use client'
 import { useState } from 'react'
-import { Transition } from '@headlessui/react'
-import { useTimeoutFn } from 'react-use'
-import Link from 'next/link'
+
 import { useRouter } from "next/navigation"
 
 const navigation ={
     // register:{href:'/pages/register'},
-    loginsuccess:{href:'./features/homeLikeCorpratePage'},
-    signup:{href:'./features/signup'}
+    loginsuccess:{href:'./homeLikeCorpratePage'},
+    signup:{href:'./signup'}
     // passwordForgot:{href:'/pages/passwordForgot'}
   }
 

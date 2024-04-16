@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
 const navigation = {
-    loginsuccess:{href:'./features/login'},
+    login:{href:'./login'},
   }
 export default function Signup() {
     const [mail,setMail] = useState('')
@@ -10,42 +10,24 @@ export default function Signup() {
     const [alertMessage,setAlertMessage] = useState<string>('')
     const router = useRouter();
 
-    const pushLoginButton = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        e.preventDefault()
-        const body = {
-          email:mail,
-          password:password
+    const signup =()=>{
+        const body ={
+            email:mail,
+            password:password
         }
-        fetch('http://localhost:8000/signin/',{
-          method:"POST",
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify(body)
-        })
-        .then(response => response.json())
-        .then(data => {
-        //   setMessage(data.res)
-            console.log(data)
-            // setAlertMessage(data)
-            switch (String(data.res)){
-                case 'Email or Password is empty':
-                setAlertMessage('メールアドレスとパスワードを入力してください')
-                break
-                case "login success":
-                router.push(navigation.loginsuccess.href)
-                console.log('ログイン成功')
-                break
-                case "wrong email or password":
-                setAlertMessage('メールアドレスかパスワードが異なります')
-                break
-                default :
-                //   setAlertMessage('読み込み完了')
-                break
-            }
-        }
-        )
-      }
+        fetch('http://localhost:8000/signup',{
+            method:"POST",
+            headers:{
+              "Content-Type":"application/json"
+            },
+            body:JSON.stringify(body)
+          })
+        //   signinのように条件分岐が必要。
+        //   signup成功⇨loginページに遷移
+        //     signup失敗⇨alertMessageにエラーメッセージを表示
+        //      空文字がメールかパスワードに入力された場合⇨alertMessageにエラーメッセージを表示
+        //      同じemailが使われている場合⇨
+    }
 
       const get =()=>{
         fetch('http://localhost:8000/users/',{
@@ -124,9 +106,17 @@ export default function Signup() {
                 <button
                 //   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={pushLoginButton}
+                  onClick={signup}
                 >
                   Sign Up
+                </button>
+                <p className='p-4 text-black'>signupロジック未実装ができてないため</p>
+                <button
+                //   type="submit"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={()=>router.push(navigation.login.href)}
+                >
+                  loginページへ
                 </button>
                 <p className='p-4 text-red-600'>{alertMessage}</p>
               </div>
