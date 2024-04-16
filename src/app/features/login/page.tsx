@@ -1,12 +1,11 @@
 'use client'
 import { useState } from 'react'
-
 import { useRouter } from "next/navigation"
 
 const navigation ={
     // register:{href:'/pages/register'},
-    loginsuccess:{href:'./homeLikeCorpratePage'},
-    signup:{href:'./signup'}
+    loginsuccess:{href:'./features/homeLikeCorpratePage'},
+    signup:{href:'./features/signup'}
     // passwordForgot:{href:'/pages/passwordForgot'}
   }
 
