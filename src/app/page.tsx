@@ -4,6 +4,7 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import login from './features/login/page'
+import HomeLikeCorpratePage from './features/homeLikeCorpratePage/page'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -16,7 +17,7 @@ export default function Home() {
 
   return (
     <div>
-      {login()}
+      {HomeLikeCorpratePage()}
     </div>
     // <div className="bg-white">
     //   <header className="absolute inset-x-0 top-0 z-50">
