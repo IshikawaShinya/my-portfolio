@@ -13,9 +13,10 @@ const navigation = {
 export default function appBanner(){
     const router = useRouter()
     return(
-        <div className="relative isolate px-6 pt-14 sm:px-8">
-            {backgroundImage()}
-            <div aria-label='myName' className="flex flex-col sm:flex-row mx-auto max-w-2xl py-5  sm:py-5 sm:py-56">
+        // <div className="relative isolate px-6 pt-14 sm:px-8">
+        <div aria-label='appBanner' className="px-6 pt-14 sm:px-8">
+            {/* {backgroundImage()} */}
+            <div aria-label='myName' className="flex flex-col sm:flex-row mx-auto max-w-2xl py-5  sm:py-5 ">
                 <div className="text-center sm:w-1/2 ">
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-4xlsm:px-8 sm:mt-8">
                     石川 晋也
@@ -37,11 +38,6 @@ export default function appBanner(){
 
                 </div>
             </div>
-            <button
-            onClick={()=>router.push(navigation.loginpage.href)}
-            >
-                <Image src='/signin_picture.png' width='100' height='100' alt={''}/>
-            </button>
             <div
             aria-label='productImage'
             className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"

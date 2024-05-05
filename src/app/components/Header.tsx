@@ -6,10 +6,11 @@ import Link from 'next/link'
 
 const navigation = [
   { name: 'Product', href: '/features/product' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-  { name: 'Not me', href: 'https://taikis-blog.vercel.app/about' },
+  // { name: 'Features', href: '#' },
+  { name: 'Career', href: '#' },
+  { name: 'Interest', href: '#' },
+  { name: 'about me', href: '#' },
+  { name: 'Contact', href: '#' },
   ]
 export default function header(){
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -19,11 +20,12 @@ export default function header(){
         <div className="flex sm:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
+            {/* <img
               className="h-8 w-auto"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt=""
-            />
+            /> */}
+            <p className='font-serif text-xl'>Shinya'Blog</p>
           </a>
         </div>
         <div className="flex sm:hidden">
