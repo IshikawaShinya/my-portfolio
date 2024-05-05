@@ -25,7 +25,7 @@ export default function header(){
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt=""
             /> */}
-            <p className='font-serif text-xl'>Shinya'Blog</p>
+            <p className='font-serif text-sm md:text-xl'>Shinya'Blog</p>
           </a>
         </div>
         <div className="flex sm:hidden">
