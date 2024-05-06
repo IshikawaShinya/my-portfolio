@@ -4,13 +4,13 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
 import Image from 'next/image'
-import backgroundImage from './backgroundImage'
+import backgroundImage from './BackgroundImage'
 
 const navigation = {
     loginpage:{ href: './features/login' },
 }
 
-export default function appBanner(){
+export default function AppBanner(){
     const router = useRouter()
     return(
         // <div className="relative isolate px-6 pt-14 sm:px-8">

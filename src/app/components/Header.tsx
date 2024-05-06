@@ -12,7 +12,7 @@ const navigation = [
   { name: 'about me', href: '#' },
   { name: 'Contact', href: '#' },
   ]
-export default function header(){
+export default function Header(){
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return(
     <header className="absolute inset-x-0 top-0 z-50">

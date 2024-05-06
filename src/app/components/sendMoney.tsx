@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function displayMoney(props: {}) {
+export default function DisplayMoney(props: {}) {
     const [displayMoney,setdisplayMoney] =useState<string>('')
     const [valueDisplayMoney,setValueDisplayMoney] = useState<string>('')
     const [alertMessage,setAlertMessage] = useState<string>('')

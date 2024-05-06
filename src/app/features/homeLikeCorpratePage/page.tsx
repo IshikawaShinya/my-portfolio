@@ -1,10 +1,9 @@
 'use client'
-import { useState } from 'react'
-import header from '@/app/components/header'
-import appBanner from '@/app/components/appBanner'
-import backgroundImage from '@/app/components/backgroundImage'
-import skillgrid from '@/app/components/skillgrid'
-import Product from '@/app/components/product'
+import BackgroundImage from '@/app/components/BackgroundImage'
+import AppBanner from '@/app/components/AppBanner'
+import Header from '@/app/components/Header'
+import Skillgrid from '@/app/components/Skillgrid'
+import Product from '@/app/components/Product'
 
 const navigation = [
   { name: 'Product', href: '/features/product' },
@@ -17,11 +16,11 @@ export default function HomeLikeCorpratePage(){
 
   return (
     <div className="bg-white isolate">
-      {header()}
-      {backgroundImage()}
-      {appBanner()}
-      {skillgrid()}
-      {Product()}
+      <Header />
+      <BackgroundImage />
+      <AppBanner />
+      <Skillgrid />
+      <Product />
     </div>
   )
 }

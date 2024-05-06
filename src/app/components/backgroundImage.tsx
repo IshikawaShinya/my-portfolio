@@ -1,5 +1,5 @@
 
-export default function backgroundImage(){
+export default function BackgroundImage(){
     return(
         //TODO:このコンポーネントは、もっと上のコンポーネントでいいと思う。
         

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-export default function formMember(props: {}) {
+export default function FormMember(props: {}) {
     const [numberForm,setNumberForm] =useState(0)
     let text = 'write member'   
     return(
