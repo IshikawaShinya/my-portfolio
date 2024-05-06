@@ -1,6 +1,6 @@
 'use client';
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
-import { Translate } from '../../components/video'
+import { Translate } from '../../components/common/Video'
 const features = [
   {
     name: '測定-状況判断のための視線動作とそれに伴う頭部回転、並進運動',

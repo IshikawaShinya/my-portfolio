@@ -1,7 +1,7 @@
 
 export default function BackgroundImage(){
     return(
-        //TODO:このコンポーネントは、もっと上のコンポーネントでいいと思う。
+        // TODO:このコンポーネントは、もっと上のコンポーネントでいいと思う。
         
         <div
         aria-label='backgroundImage'

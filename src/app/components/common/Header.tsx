@@ -6,12 +6,12 @@ import Link from 'next/link'
 
 const navigation = [
   { name: 'Product', href: '/features/product' },
-  // { name: 'Features', href: '#' },
   { name: 'Career', href: '#' },
   { name: 'Interest', href: '#' },
   { name: 'about me', href: '#' },
   { name: 'Contact', href: '#' },
-  ]
+]
+
 export default function Header(){
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return(
@@ -20,11 +20,6 @@ export default function Header(){
         <div className="flex sm:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            {/* <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            /> */}
             <p className='font-serif text-sm md:text-xl'>Shinya'Blog</p>
           </a>
         </div>
@@ -77,12 +72,6 @@ export default function Header(){
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
-                  // <a
-                  //   key={item.name}
-                  //   href={item.href}
-                  //   className="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  // >
-                  // </a>
                   <Link
                   href={item.href}
                   className='-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>

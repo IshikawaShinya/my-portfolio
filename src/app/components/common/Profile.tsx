@@ -1,11 +1,9 @@
 import React from "react";
 
-const Profile: React.FC = () => {
+export default function Profile() {
   return (
     <div className="bg-white">
       <div className="text-black">Profile</div>
     </div>
   );
 };
-
-export default Profile;

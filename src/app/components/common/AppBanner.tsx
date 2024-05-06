@@ -13,9 +13,7 @@ const navigation = {
 export default function AppBanner(){
     const router = useRouter()
     return(
-        // <div className="relative isolate px-6 pt-14 sm:px-8">
         <div aria-label='appBanner' className="px-6 pt-14 sm:px-8">
-            {/* {backgroundImage()} */}
             <div aria-label='myName' className="flex flex-col sm:flex-row mx-auto max-w-2xl py-5  sm:py-5 ">
                 <div className="text-center sm:w-1/2 ">
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-4xlsm:px-8 sm:mt-8">
