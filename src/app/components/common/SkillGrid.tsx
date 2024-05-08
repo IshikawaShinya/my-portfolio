@@ -5,7 +5,7 @@ type SkillInfo = {
     alt: string,
 }
 
-const mySkillInfos: SkillInfo[] = [
+const skillInfos: SkillInfo[] = [
     {
         src: "/react_icon.png",
         alt: "Transistor"
@@ -32,8 +32,8 @@ export default function Skillgrid(){
                     Skill Set
                 </h2>
                 <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:items-center sm:max-w-4xl sm:grid-cols-4 sm:gap-x-5">
-                    {mySkillInfos.map((skillInfo, index) => (
-                        <SkillCard key={`${skillInfo.src}-${index}`} src={skillInfo.src} alt={skillInfo.alt} />
+                    {skillInfos.map((skillInfo, index) => (
+                        <SkillCard key={`${skillInfo.alt}-${index}`} src={skillInfo.src} alt={skillInfo.alt} />
                     ))}
                 </div>
             </div>
