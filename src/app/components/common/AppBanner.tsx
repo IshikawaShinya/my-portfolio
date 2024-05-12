@@ -19,10 +19,9 @@ export default function AppBanner(){
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl sm:px-8 sm:mt-20 md:text-6xl">
                     石川 晋也
                     </h1>
-                    {/* <p className="mt-6 text-sm leading-8 text-gray-600">
-                    WEBフロントエンジニア<br />
-                    REACT/Next.js/Tailwindcss
-                    </p> */}
+                    <p className="mt-6 text-sm leading-8 text-gray-600">
+                    WEBフロントエンジニア
+                    </p>
                 </div>
                 {/* 画像の大きさを固定して、パディングの大きさを変える。 */}
                 {/* 親コンポーネントの中で真ん中に配置する方法 */}
