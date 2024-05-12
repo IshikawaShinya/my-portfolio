@@ -2,14 +2,9 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
 
 const navigation = [
   { name: 'Product', href: '/features/product' },
-  { name: 'Career', href: '#' },
-  { name: 'Interest', href: '#' },
-  { name: 'about me', href: '#' },
-  { name: 'Contact', href: '#' },
 ]
 
 export default function Header(){
