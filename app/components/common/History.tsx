@@ -1,3 +1,4 @@
+import Image from 'next/image'
 
 export default function History(){
     return(
@@ -9,7 +10,7 @@ export default function History(){
                 <div 
                 className=""
                 aria-label="history-card">
-                    <img src="/university.png" alt="" />
+                    <Image src="/university.png" alt="" />
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ export default function Header(){
         <div className="flex sm:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <p className='font-serif text-sm md:text-xl'>Shinya'Blog</p>
+            <p className='font-serif text-sm md:text-xl'>Shinya&apos;s Blog</p>
           </a>
         </div>
         <div className="flex sm:hidden">

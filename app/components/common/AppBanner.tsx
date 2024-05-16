@@ -30,7 +30,7 @@ export default function AppBanner(){
                     aria-label='fronend-engineer image' 
                     className='h-48 w-48 sm:h-full sm:w-full'
                     >
-                        <img src='/web-apps-development.png' alt={''}/>
+                        <Image src='/web-apps-development.png' alt={''}/>
                     </div>
 
                 </div>
