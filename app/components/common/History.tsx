@@ -10,7 +10,7 @@ export default function History(){
                 <div 
                 className=""
                 aria-label="history-card">
-                    <Image src="/university.png" alt="" />
+                    <Image src="/university.png" height = "64" width = "64" alt="" />
                 </div>
             </div>
         </div>

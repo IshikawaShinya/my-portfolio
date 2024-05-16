@@ -5,6 +5,7 @@ import Link from 'next/link'
 import {useRouter} from 'next/navigation'
 import Image from 'next/image'
 import backgroundImage from './BackgroundImage'
+import webAppsDevelopment from '@/public/web-apps-development.png'
 
 const navigation = {
     loginpage:{ href: './features/login' },
@@ -30,7 +31,10 @@ export default function AppBanner(){
                     aria-label='fronend-engineer image' 
                     className='h-48 w-48 sm:h-full sm:w-full'
                     >
-                        <Image src='/web-apps-development.png' alt={''}/>
+                        <Image 
+                            src={webAppsDevelopment}
+                            alt={''}
+                        />
                     </div>
 
                 </div>

@@ -13,5 +13,8 @@ const nextConfig = {
           delete modularizeImports["@headlessui/react"];
         return config;
       },
+    images: {
+      domains:["tailwindui.com"]
+    },
 };
 export default nextConfig;
