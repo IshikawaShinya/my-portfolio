@@ -1,8 +1,8 @@
 'use client'
-import BackgroundImage from '@/app/components/common/BackgroundImage'
-import AppBanner from '@/app/components/common/AppBanner'
-import Header from '@/app/components/common/Header'
-import Skillgrid from '@/app/components/common/SkillGrid'
+import BackgroundImage from '../../components/common/BackgroundImage'
+import AppBanner from '../../components/common/AppBanner'
+import Header from '../../components/common/Header'
+import Skillgrid from '../../components/common/SkillGrid'
 
 const navigation = [
   { name: 'Product', href: '/features/product' },
