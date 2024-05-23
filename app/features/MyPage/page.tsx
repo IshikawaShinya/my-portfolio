@@ -11,7 +11,8 @@ const navigation = [
   { name: 'Company', href: '#' },
   { name: 'Not me', href: 'https://taikis-blog.vercel.app/about' },
   ]
-export default function MyPage(){
+
+export default function MyPage() {
 
   return (
     <div className="bg-white isolate">

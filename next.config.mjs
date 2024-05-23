@@ -14,7 +14,18 @@ const nextConfig = {
         return config;
       },
     images: {
-      domains:["tailwindui.com"]
+      dangerouslyAllowSVG: true,
+      contentDispositionType: 'attachment',
+      contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+      domains:["tailwindui.com"],
+      remotePatterns:[
+        {
+          protocol:'https',
+          hostname:'tailwindui.com',
+          port:'',
+          pathname:'/img/logos/**'
+        },
+      ],
     },
 };
 export default nextConfig;
