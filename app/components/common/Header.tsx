@@ -14,8 +14,9 @@ export default function Header(){
       <nav className="flex items-center justify-between p-6 sm:px-8" aria-label="Global">
         <div className="flex sm:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <p className='font-serif text-sm md:text-xl'>Shinya'Blog</p>
+            {/* ブログページ作ってから用意しよう */}
+            {/* <span className="sr-only">Your Company</span>
+            <p className='font-serif text-sm md:text-xl'>Shinya&apos;s Blog</p> */}
           </a>
         </div>
         <div className="flex sm:hidden">

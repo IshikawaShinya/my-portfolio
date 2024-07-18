@@ -1,6 +1,7 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Header from './Header';
 
 const navigation = {
     loginpage:{ href: './features/login' },
@@ -9,7 +10,8 @@ const navigation = {
 export default function Product(){
     const router = useRouter()
     return(
-      <div>
+      <div className="bg-white isolate">
+        <Header/>
         <button
           onClick={()=>router.push(navigation.loginpage.href)}
         >

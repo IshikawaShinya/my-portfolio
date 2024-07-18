@@ -1,33 +1,60 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
-const navigation = {
-    login:{href:'./login'},
+import Image from 'next/image'
+
+const navigation ={
+    // register:{href:'/pages/register'},
+    loginsuccess:{href:'./features/homeLikeCorpratePage'},
+    signup:{href:'./features/signup'}
+    // passwordForgot:{href:'/pages/passwordForgot'}
   }
-export default function Signup() {
+
+export default function Login() {
+    const [message, setMessage] = useState('')
     const [mail,setMail] = useState('')
     const [password,setPassword] = useState('')
     const [alertMessage,setAlertMessage] = useState<string>('')
     const router = useRouter();
+  
+    // console.log(router)
 
-    const signup =()=>{
-        const body ={
-            email:mail,
-            password:password
+    const pushLoginButton = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
+        const body = {
+          email:mail,
+          password:password
         }
-        fetch('http://localhost:8000/signup',{
-            method:"POST",
-            headers:{
-              "Content-Type":"application/json"
-            },
-            body:JSON.stringify(body)
-          })
-        //   signinのように条件分岐が必要。
-        //   signup成功⇨loginページに遷移
-        //     signup失敗⇨alertMessageにエラーメッセージを表示
-        //      空文字がメールかパスワードに入力された場合⇨alertMessageにエラーメッセージを表示
-        //      同じemailが使われている場合⇨
-    }
+        fetch('http://localhost:8000/signin/',{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(data => {
+        //   setMessage(data.res)
+            console.log(data)
+            // setAlertMessage(data)
+            switch (String(data.res)){
+                case 'Email or Password is empty':
+                setAlertMessage('メールアドレスとパスワードを入力してください')
+                break
+                case "login success":
+                router.push(navigation.loginsuccess.href)
+                console.log('ログイン成功')
+                break
+                case "wrong email or password":
+                setAlertMessage('メールアドレスかパスワードが異なります')
+                break
+                default :
+                //   setAlertMessage('読み込み完了')
+                break
+            }
+        }
+        )
+      }
 
       const get =()=>{
         fetch('http://localhost:8000/users/',{
@@ -42,16 +69,21 @@ export default function Signup() {
         })
     }
 
-    return(
+    return (
+        // <div className="h-full bg-white">
+        // </div>
+
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img
+            <Image
               className="mx-auto h-10 w-auto"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              height = "64" 
+              width = "64"
               alt="Your Company"
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              SignUp
+              Sign in to your account
             </h2>
           </div>
   
@@ -81,11 +113,11 @@ export default function Signup() {
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                     Password
                   </label>
-                  {/* <div className="text-sm">
+                  <div className="text-sm">
                     <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
                       Forgot password?
                     </a>
-                  </div> */}
+                  </div>
                 </div>
                 <div className="mt-2">
                   <input
@@ -106,21 +138,22 @@ export default function Signup() {
                 <button
                 //   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={signup}
+                  onClick={pushLoginButton}
                 >
-                  Sign Up
-                </button>
-                <p className='p-4 text-black'>signupロジック未実装ができてないため</p>
-                <button
-                //   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={()=>router.push(navigation.login.href)}
-                >
-                  loginページへ
+                  Sign in
                 </button>
                 <p className='p-4 text-red-600'>{alertMessage}</p>
               </div>
             </form>
+  
+            <p className="mt-10 text-center text-sm text-gray-500">
+              Not a member?{' '}
+                <button 
+                className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
+                onClick={()=>router.push(navigation.signup.href)}>
+                    Start a 14 day free trial
+                </button>
+            </p>
             <button
             onClick={get}
             >
@@ -129,6 +162,6 @@ export default function Signup() {
           </div>
         </div>
 
-
     )
-}
+  }
+  
