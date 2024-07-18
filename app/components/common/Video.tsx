@@ -21,8 +21,15 @@ export function Translate() {
 
     return (
         <React.StrictMode>
-            <Player>
+            <Player
+                onPlay={()=>{}}
+                onEnded={()=>{}}
+                onLoadStart={()=>{}}
+                onPause={()=>{}}
+                videoId='video1'
+            >
                 <source src="/まとめ.mp4" />
+                
             </Player>
         </React.StrictMode>
     );

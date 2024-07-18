@@ -2,14 +2,9 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
 
 const navigation = [
   { name: 'Product', href: '/features/product' },
-  { name: 'Career', href: '#' },
-  { name: 'Interest', href: '#' },
-  { name: 'about me', href: '#' },
-  { name: 'Contact', href: '#' },
 ]
 
 export default function Header(){
@@ -20,7 +15,7 @@ export default function Header(){
         <div className="flex sm:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <p className='font-serif text-sm md:text-xl'>Shinya'Blog</p>
+            <p className='font-serif text-sm md:text-xl'>Shinya&apos;s Blog</p>
           </a>
         </div>
         <div className="flex sm:hidden">
