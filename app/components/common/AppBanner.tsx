@@ -8,7 +8,7 @@ import backgroundImage from './BackgroundImage'
 import webAppsDevelopment from '@/public/web-apps-development.png'
 
 const navigation = {
-    loginpage:{ href: './features/login' },
+    // loginpage:{ href: './features/login' },
 }
 
 export default function AppBanner(){
