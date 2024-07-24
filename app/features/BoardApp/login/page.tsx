@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 const navigation ={
     // register:{href:'/pages/register'},
     loginsuccess:{href:'./BoardApp/BoardApp-Home'},
-    signup:{href:'./features/signup'}
+    signup:{href:'./BoardApp/signup'}
     // passwordForgot:{href:'/pages/passwordForgot'}
   }
 
