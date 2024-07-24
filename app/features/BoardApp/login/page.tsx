@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
-import Image from 'next/image'
+
 
 const navigation ={
     // register:{href:'/pages/register'},
-    loginsuccess:{href:'./BoardApp-Home'},
+    loginsuccess:{href:'./BoardApp/BoardApp-Home'},
     signup:{href:'./features/signup'}
     // passwordForgot:{href:'/pages/passwordForgot'}
   }
