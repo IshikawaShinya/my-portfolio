@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 
 export default function ManageForm(props: {}) {
@@ -56,7 +57,7 @@ export default function ManageForm(props: {}) {
                                 編集
                             </button>
                             <input
-                            placeholder = 'write money'
+                            placeholder = 'write'
                             className = 'text-black bg-white'
                             disabled = {inputdisabled}
                             //   onChange = {}

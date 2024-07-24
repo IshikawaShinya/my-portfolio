@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const navigation ={
     // register:{href:'/pages/register'},
-    loginsuccess:{href:'./features/BoardApp/home'},
+    loginsuccess:{href:'./BoardApp-Home'},
     signup:{href:'./features/signup'}
     // passwordForgot:{href:'/pages/passwordForgot'}
   }

@@ -14,7 +14,7 @@ export default function FormMember(props: {}) {
                 >
                 </button>
             <input
-              placeholder = 'write money'
+              placeholder = 'write'
               className = 'text-black bg-white'
             >
             </input>
