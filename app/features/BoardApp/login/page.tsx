@@ -11,20 +11,20 @@ const navigation ={
   }
 
 export default function Login() {
-    const [message, setMessage] = useState('')
-    const [mail,setMail] = useState('')
-    const [password,setPassword] = useState('')
-    const [alertMessage,setAlertMessage] = useState<string>('')
+    const [message, setMessage] = useState('');
+    const [mail, setMail] = useState('');
+    const [password, setPassword] = useState('');
+    const [alertMessage, setAlertMessage] = useState<string>('');
     const router = useRouter();
   
     // console.log(router)
 
     const pushLoginButton = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        e.preventDefault()
+        e.preventDefault();
         const body = {
           email:mail,
           password:password
-        }
+        };
         fetch('http://localhost:8000/signin/',{
           method:"POST",
           headers:{
@@ -35,26 +35,25 @@ export default function Login() {
         .then(response => response.json())
         .then(data => {
         //   setMessage(data.res)
-            console.log(data)
-            // setAlertMessage(data)
-            switch (String(data.res)){
-                case 'Email or Password is empty':
-                setAlertMessage('メールアドレスとパスワードを入力してください')
-                break
-                case "login success":
-                router.push(navigation.loginsuccess.href)
-                console.log('ログイン成功')
-                break
-                case "wrong email or password":
-                setAlertMessage('メールアドレスかパスワードが異なります')
-                break
-                default :
-                //   setAlertMessage('読み込み完了')
-                break
-            }
-        }
-        )
-      }
+          console.log(data)
+          // setAlertMessage(data)
+          switch (String(data.res)){
+              case 'Email or Password is empty':
+              setAlertMessage('メールアドレスとパスワードを入力してください')
+              break
+              case "login success":
+              router.push(navigation.loginsuccess.href)
+              console.log('ログイン成功')
+              break
+              case "wrong email or password":
+              setAlertMessage('メールアドレスかパスワードが異なります')
+              break
+              default :
+              //   setAlertMessage('読み込み完了')
+              break
+          }
+        });
+      };
 
       const get =()=>{
         fetch('http://localhost:8000/users/',{
@@ -86,17 +85,17 @@ export default function Login() {
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address
                 </label>
-                <div className="mt-2">
+                <div className = "mt-2">
                   <input
-                    id="email"
-                    name="email"
+                    id = "email"
+                    name = "email"
                     // type="email"
-                    placeholder='mail'
+                    placeholder = 'mail'
                     // autoComplete="email"
-                    required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    onChange={(e)=>setMail(e.target.value)}
-                    value={mail}
+                    // required
+                    className = "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    onChange = {(e) => setMail(e.target.value)}
+                    value = {mail}
                   />
                 </div>
               </div>
