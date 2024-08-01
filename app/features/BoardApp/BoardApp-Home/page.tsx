@@ -1,9 +1,14 @@
+'use client'
 import ManageForm from "@/app/components/common/ManageForm";
+import { useContext } from "react";
+import { UserProvider, userContext } from "@/app/components/contexts/Usercontexts";
 
 export default function HomeBoardApp(){
     return(
-        <div className="bg-white">
-            <ManageForm/>
-        </div>
+        <UserProvider>
+            <div className="bg-white">
+                <ManageForm/>
+            </div>
+        </UserProvider>
     )
 }

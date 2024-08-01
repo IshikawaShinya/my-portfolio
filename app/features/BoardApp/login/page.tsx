@@ -1,7 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
-
+import { useContext } from 'react'
+import { userContext } from '@/app/components/contexts/Usercontexts'
 
 const navigation ={
     // register:{href:'/pages/register'},
@@ -16,7 +17,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [alertMessage, setAlertMessage] = useState<string>('');
     const router = useRouter();
-  
+    const user = useContext(userContext);
     // console.log(router)
 
     const pushLoginButton = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -67,6 +68,8 @@ export default function Login() {
             console.log(data)
         })
     }
+
+    console.log(user)
 
     return (
         // <div className="h-full bg-white">
