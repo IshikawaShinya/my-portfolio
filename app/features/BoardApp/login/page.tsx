@@ -17,7 +17,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [alertMessage, setAlertMessage] = useState<string>('');
     const router = useRouter();
-    const user = useContext(userContext);
+    const {stateUser, setUser} = useContext(userContext);
     // console.log(router)
 
     const pushLoginButton = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -43,6 +43,7 @@ export default function Login() {
               setAlertMessage('メールアドレスとパスワードを入力してください')
               break
               case "login success":
+              setUser(2)
               router.push(navigation.loginsuccess.href)
               console.log('ログイン成功')
               break
@@ -69,7 +70,6 @@ export default function Login() {
         })
     }
 
-    console.log(user)
 
     return (
         // <div className="h-full bg-white">

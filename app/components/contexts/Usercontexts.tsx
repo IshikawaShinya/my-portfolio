@@ -1,64 +1,48 @@
 'use client'
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-interface User {
-    id: number;
-    username: string;
-    email: string;
-    password: string;
+import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
+ 
+type stateUser = {
+    stateUser: number,
+    setUser: Dispatch<SetStateAction<number>> 
 }
 
-const testDataUser: User = {
-    id:1,
-    username: "test",
-    email: "test@gmail.com",
-    password: "test"
+const testUser : number = 1
+
+const teststateUser : stateUser = {
+    stateUser:testUser,
+    setUser: () => {}
 }
 
-export const userContext = createContext<number>(0);
+// interface User {
+//     id: number;
+//     username: string;
+//     email: string;
+//     //セキュリティ上,passwordは持たない。
+// }
+
+// const testDataUser: User = {
+//     id:1,
+//     username: "test",
+//     email: "test@gmail.com",
+// }
+
+
+export const userContext = createContext<stateUser>(teststateUser);
+//セッターを実装。https://qiita.com/charon1212/items/b8aabb09196fb8566b1c
 //TODO:Userも一旦考えない
 // export const userContext = createContext<User>(testDataUser);
 //TODO:undefinedは一旦考えない
 // export const userContext = createContext<User|undefined>(undefined);
 
 export const UserProvider: React.FC <{children: ReactNode}> = ({children}) => {
+    const [useUser, setuseUser] = useState<number>(testUser)
+    const propstate : stateUser = {
+        stateUser:useUser,
+        setUser: setuseUser
+    }
     return(
-        <userContext.Provider value = {1}>
+        <userContext.Provider value = {propstate}>
             {children}
         </userContext.Provider>
     )
 }
-
-// interface UserContextProps {
-//     user: User | null;
-//     login: (userData: User) => void; //なぜプロパティではなく関数にするのか？
-//     logout: () => void;   
-// }
-
-// const UserContext = createContext<UserContextProps | undefined>(undefined); //?
-
-// export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-//     const [user, setUser] = useState<User | null>(null);
-
-//     const login = (userData: User) => {
-//         setUser(userData);
-//     };
-
-//     const logout = () => {
-//         setUser(null);
-//     };
-
-//     return (
-//         <UserContext.Provider value={{ user, login, logout }}>
-//             {children}
-//         </UserContext.Provider>
-//     );
-// };
-
-// export const useUser = () => {
-//     const context = useContext(UserContext);
-//     if (context === undefined) {
-//         throw new Error('useUser must be used within a UserProvider');
-//     }
-//     return context;
-// };

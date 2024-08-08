@@ -1,9 +1,13 @@
 'use client'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { userContext } from '../contexts/Usercontexts'
 
 export default function ManageForm(props: {}) {
     const [numberForm,setNumberForm] =useState([false])
     const[inputdisabled,setInputdisabled] = useState(false)
+    const {stateUser, setUser} = useContext(userContext);
+
     // const [inputdisabled2,setInputdisabled2] = useState([false])
     let text = 'write member name'   
     const addForm = () =>{
@@ -16,7 +20,6 @@ export default function ManageForm(props: {}) {
         copyNumberForm.splice(-1,1)
         setNumberForm(copyNumberForm)
     }
-
     return(
         // 
         // complete：プラスボタンを押したらフォームが増え,削除ボタンを押すとフォームが消える.
