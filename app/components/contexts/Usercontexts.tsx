@@ -2,17 +2,17 @@
 import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
  
 type stateUser = {
-    stateUser: number,
-    setUser: Dispatch<SetStateAction<number>> 
+    stateUser : number,
+    setUser : Dispatch<SetStateAction<number>> 
 }
 
 const testUser : number = 1
 
 const teststateUser : stateUser = {
-    stateUser:testUser,
-    setUser: () => {}
+    stateUser : testUser,
+    setUser : () => {}
 }
-
+// 完成データ型
 // interface User {
 //     id: number;
 //     username: string;
@@ -20,6 +20,7 @@ const teststateUser : stateUser = {
 //     //セキュリティ上,passwordは持たない。
 // }
 
+// 完成データ型のテストデータ
 // const testDataUser: User = {
 //     id:1,
 //     username: "test",
@@ -37,7 +38,7 @@ export const userContext = createContext<stateUser>(teststateUser);
 export const UserProvider: React.FC <{children: ReactNode}> = ({children}) => {
     const [useUser, setuseUser] = useState<number>(testUser)
     const propstate : stateUser = {
-        stateUser:useUser,
+        stateUser: useUser,
         setUser: setuseUser
     }
     return(

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { useContext } from 'react'
 import { userContext } from '@/app/components/contexts/Usercontexts'
 
-const navigation ={
+const navigation = {
     // register:{href:'/pages/register'},
     loginsuccess:{href:'./BoardApp/BoardApp-Home'},
     signup:{href:'./BoardApp/signup'}
@@ -12,7 +12,6 @@ const navigation ={
   }
 
 export default function Login() {
-    const [message, setMessage] = useState('');
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [alertMessage, setAlertMessage] = useState<string>('');
@@ -20,61 +19,60 @@ export default function Login() {
     const {stateUser, setUser} = useContext(userContext);
     // console.log(router)
 
+    const LoginResponseHandler = (response : string) => {
+      switch (response){
+        case "Email or Password is empty":
+          setAlertMessage("メールアドレスとパスワードを入力してください")
+          break
+        case "login success":
+          setUser(2)
+          router.push(navigation.loginsuccess.href)
+          console.log("ログイン成功")
+          break
+        case "wrong email or password":
+          setAlertMessage("メールアドレスかパスワードが異なります")
+          break
+        default :
+        //setAlertMessage('読み込み完了')
+          break
+      } 
+    }
+
     const pushLoginButton = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         const body = {
           email:mail,
           password:password
         };
-        fetch('http://localhost:8000/signin/',{
+        fetch("http://localhost:8000/signin/",{
           method:"POST",
           headers:{
-            "Content-Type":"application/json"
+            "Content-Type" : "application/json"
           },
           body:JSON.stringify(body)
         })
         .then(response => response.json())
         .then(data => {
-        //   setMessage(data.res)
           console.log(data)
-          // setAlertMessage(data)
-          switch (String(data.res)){
-              case 'Email or Password is empty':
-              setAlertMessage('メールアドレスとパスワードを入力してください')
-              break
-              case "login success":
-              setUser(2)
-              router.push(navigation.loginsuccess.href)
-              console.log('ログイン成功')
-              break
-              case "wrong email or password":
-              setAlertMessage('メールアドレスかパスワードが異なります')
-              break
-              default :
-              //   setAlertMessage('読み込み完了')
-              break
-          }
+          LoginResponseHandler(String(data.res))
         });
-      };
+    };
 
-      const get =()=>{
-        fetch('http://localhost:8000/users/',{
-            method:"GET",
-            headers:{
-              "Content-Type":"application/json"
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-        })
+    const get =()=>{
+      fetch('http://localhost:8000/users/',{
+          method:"GET",
+          headers:{
+            "Content-Type":"application/json"
+          }
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data)
+      })
     }
 
 
     return (
-        // <div className="h-full bg-white">
-        // </div>
-
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
