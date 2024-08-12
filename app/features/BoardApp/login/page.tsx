@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
 import { useContext } from 'react'
-import { userContext } from '@/app/components/contexts/Usercontexts'
+import { userContext,User } from '@/app/components/contexts/Usercontexts'
 
 const navigation = {
     // register:{href:'/pages/register'},
@@ -10,6 +10,13 @@ const navigation = {
     signup:{href:'./BoardApp/signup'}
     // passwordForgot:{href:'/pages/passwordForgot'}
   }
+
+//clientサイドのユーザデータ更新のテストデータ
+const testUserData2: User = {
+  id:2,
+  username: "test2",
+  email: "test2@gmail.com",
+}
 
 export default function Login() {
     const [mail, setMail] = useState('');
@@ -20,12 +27,13 @@ export default function Login() {
     // console.log(router)
 
     const LoginResponseHandler = (response : string) => {
+      console.log(stateUser)
       switch (response){
         case "Email or Password is empty":
           setAlertMessage("メールアドレスとパスワードを入力してください")
           break
         case "login success":
-          setUser(2)
+          // setUser(testUserData2) //clientサイドのデータの更新をしたい。
           router.push(navigation.loginsuccess.href)
           console.log("ログイン成功")
           break
