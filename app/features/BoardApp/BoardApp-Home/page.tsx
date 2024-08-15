@@ -4,10 +4,8 @@ import { UserProvider, userContext } from "@/app/components/contexts/Usercontext
 
 export default function HomeBoardApp(){
     return(
-        <UserProvider>
             <div className="bg-white">
                 <ManageForm/>
             </div>
-        </UserProvider>
     )
 }

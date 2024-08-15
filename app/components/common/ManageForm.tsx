@@ -13,6 +13,7 @@ export default function ManageForm(props: {}) {
         let copyNumberForm = [...numberForm]
         copyNumberForm.push(false)
         setNumberForm(copyNumberForm)
+        console.log(stateUser)
     }
     const reduceForm = () =>{
         let copyNumberForm = [...numberForm]

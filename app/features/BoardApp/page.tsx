@@ -2,15 +2,13 @@
 import Login from "./login/page"
 import React from "react"
 import { UserProvider } from "@/app/components/contexts/Usercontexts"
-// TODO:React routerを理解
-
+import { HomeIcon } from "@heroicons/react/24/outline"
+import HomeBoardApp from "./BoardApp-Home/page"
 
 export default function BoardApp(){
     return(
-        <UserProvider>
             <div className="bg-white">
                 <Login />
             </div>
-        </UserProvider>
     )
 }

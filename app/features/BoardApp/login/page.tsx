@@ -33,11 +33,12 @@ export default function Login() {
           setAlertMessage("メールアドレスとパスワードを入力してください")
           break
         case "login success":
-          // setUser(testUserData2) //clientサイドのデータの更新をしたい。
+          
           router.push(navigation.loginsuccess.href)
           console.log("ログイン成功")
           break
         case "wrong email or password":
+          setUser(testUserData2) //clientサイドのデータの更新をしたい。
           setAlertMessage("メールアドレスかパスワードが異なります")
           break
         default :
@@ -67,6 +68,7 @@ export default function Login() {
     };
 
     const get =()=>{
+      console.log(stateUser)
       fetch('http://localhost:8000/users/',{
           method:"GET",
           headers:{
