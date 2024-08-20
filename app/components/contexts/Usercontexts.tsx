@@ -18,11 +18,9 @@ const testDataUser: User = {
 }
 
 type stateUser = {
-    stateUser : User,
+    stateUser : User |undefined,
     setUser : Dispatch<SetStateAction<User>> 
 }
-
-// const testUser : number = 1
 
 const teststateUser : stateUser = {
     stateUser : testDataUser,
