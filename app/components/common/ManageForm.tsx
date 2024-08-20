@@ -22,7 +22,7 @@ export default function ManageForm(props: {}) {
     }
     return(
 
-        <div>
+        <div className='h-96 w-full'>
             <button
                 className='rounded bg-white h-5 w-5 text-black'
                 onClick={()=>(addForm())}

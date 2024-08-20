@@ -18,13 +18,15 @@ const testDataUser: User = {
 }
 
 type stateUser = {
-    stateUser : User |undefined,
-    setUser : Dispatch<SetStateAction<User>> 
+    stateUser : User | null,
+    setUser : Dispatch<SetStateAction<User | null>>,
+    logout: () => void
 }
 
 const teststateUser : stateUser = {
     stateUser : testDataUser,
-    setUser : () => {}
+    setUser : () => {},
+    logout: () => {}
 }
 
 export const userContext = createContext<stateUser>(teststateUser);
@@ -35,14 +37,19 @@ export const userContext = createContext<stateUser>(teststateUser);
 // export const userContext = createContext<User|undefined>(undefined);
 
 export const UserProvider: React.FC <{children: ReactNode}> = ({children}) => {
-    const [useUser, setuseUser] = useState<User>(testDataUser)
+    const [useUser, setuseUser] = useState<User | null>(testDataUser);
+    
+    const logout = () =>{
+        setuseUser(null);
+    };
     const propstate : stateUser = {
         stateUser : useUser,
-        setUser : setuseUser
-    }
+        setUser : setuseUser,
+        logout : logout,
+    };
     return(
         <userContext.Provider value = {propstate}>
             {children}
         </userContext.Provider>
-    )
+    );
 }
