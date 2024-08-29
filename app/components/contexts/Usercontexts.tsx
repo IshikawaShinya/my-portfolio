@@ -7,6 +7,7 @@ export interface User {
     id: number;
     username: string;
     email: string;
+    profileImg: string;
     //セキュリティ上,passwordは持たない。
 }
 
@@ -15,6 +16,7 @@ const testDataUser: User = {
     id:1,
     username: "test",
     email: "test@gmail.com",
+    profileImg: "/shinya.jpg"
 }
 
 type stateUser = {
@@ -29,12 +31,12 @@ const teststateUser : stateUser = {
     logout: () => {}
 }
 
-export const userContext = createContext<stateUser>(teststateUser);
+export const LoginUserContext = createContext<stateUser>(teststateUser);
 //セッターを実装。https://qiita.com/charon1212/items/b8aabb09196fb8566b1c
 //TODO:Userも一旦考えない
-// export const userContext = createContext<User>(testDataUser);
+// export const LoginUserContext = createContext<User>(testDataUser);
 //TODO:undefinedは一旦考えない
-// export const userContext = createContext<User|undefined>(undefined);
+// export const LoginUserContext = createContext<User|undefined>(undefined);
 
 export const UserProvider: React.FC <{children: ReactNode}> = ({children}) => {
     const [useUser, setuseUser] = useState<User | null>(testDataUser);
@@ -48,8 +50,8 @@ export const UserProvider: React.FC <{children: ReactNode}> = ({children}) => {
         logout : logout,
     };
     return(
-        <userContext.Provider value = {propstate}>
+        <LoginUserContext.Provider value = {propstate}>
             {children}
-        </userContext.Provider>
+        </LoginUserContext.Provider>
     );
 }

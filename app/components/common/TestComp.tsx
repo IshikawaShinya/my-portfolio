@@ -1,6 +1,6 @@
 'use client'
-import { useUser } from "@/app/components/contexts/Usercontexts";
-import { User } from "@/app/components/contexts/Usercontexts";
+import { useUser } from "@/app/components/contexts/UserContexts";
+import { User } from "@/app/components/contexts/UserContexts";
 
 
 function test(user:User | null){

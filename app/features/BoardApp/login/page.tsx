@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
 import { useContext } from 'react'
-import { userContext,User } from '@/app/components/contexts/Usercontexts'
+import { LoginUserContext,User } from '@/app/components/contexts/UserContexts'
 
 const navigation = {
     // register:{href:'/pages/register'},
@@ -11,11 +11,11 @@ const navigation = {
     // passwordForgot:{href:'/pages/passwordForgot'}
   }
 
-//clientサイドのユーザデータ更新のテストデータ
 const testUserData2: User = {
   id:2,
   username: "test2",
   email: "test2@gmail.com",
+  profileImg: "/next.svg"
 }
 
 export default function Login() {
@@ -23,7 +23,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [alertMessage, setAlertMessage] = useState<string>('');
     const router = useRouter();
-    const {stateUser, setUser} = useContext(userContext);
+    const {stateUser, setUser} = useContext(LoginUserContext);
     // console.log(router)
 
     const LoginResponseHandler = (response : string) => {

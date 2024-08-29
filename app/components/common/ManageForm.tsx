@@ -1,12 +1,12 @@
 'use client'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { userContext } from '../contexts/Usercontexts'
+import { LoginUserContext } from '../contexts/UserContexts'
 
 export default function ManageForm(props: {}) {
     const [numberForm, setNumberForm] = useState([false])
     const[inputdisabled, setInputdisabled] = useState(false)
-    const {stateUser, setUser} = useContext(userContext);
+    const {stateUser, setUser} = useContext(LoginUserContext);
 
     let text = 'write member name'   
     const addForm = () =>{
@@ -22,7 +22,7 @@ export default function ManageForm(props: {}) {
     }
     return(
 
-        <div className='h-96 w-full'>
+        <div className='h-96 pt-16 w-full'>
             <button
                 className='rounded bg-white h-5 w-5 text-black'
                 onClick={()=>(addForm())}
