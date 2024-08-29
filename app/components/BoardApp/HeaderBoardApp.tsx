@@ -9,8 +9,8 @@ export default function HeaderBoardApp(){
     <div className='h-20 w-full'>
       <header className="absolute inset-x-0 top-0 z-50">
         <div>{stateUser?.id}</div>
-        <button onChange={logout}>logout</button>
-        <button onChange={() => console.log(stateUser)}>  console.log</button>
+        <button onClick={logout}>logout</button>
+        <button onClick={() => console.log(stateUser)}>  console.log</button>
       </header>
     </div>
   )
