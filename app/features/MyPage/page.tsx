@@ -15,7 +15,7 @@ const navigation = [
 export default function MyPage() {
 
   return (
-    <div className="bg-white isolate">
+    <div className="bg-white min-h-screen isolate">
       <Header />
       <BackgroundImage />
       <AppBanner />
