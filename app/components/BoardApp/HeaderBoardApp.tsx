@@ -1,17 +1,26 @@
 'use client'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import { LoginUserContext } from '../contexts/UserContexts'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Avater from '../common/Avater'
-const navigation = [
-  { name: 'Product', href: '/features/product' },
-]
+
 
 export default function HeaderBoardApp(){
   const {stateUser, setUser, logout} = useContext(LoginUserContext); 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const router = useRouter();
+  const navigation = {
+    login: { name: 'login', href: '..' },
+  }
+  
+  const navigateToLoginPage = () => {
+    return(
+      router.push(navigation.login.href)
+    )
+  }
 
   return(
       <header className="absolute inset-x-0 top-0 z-50 border-b-2 border-gray-300">
@@ -53,11 +62,25 @@ export default function HeaderBoardApp(){
                     <p>{stateUser?.username}</p>
                   </div>
                 </div>
-                <button className='flex relative items-center h-8 w-full' onClick={logout}>
-                  <div className='pl-10'></div>
-                  <div className='p-2'></div>
-                  <p className=''></p>logout
-                </button>
+                <div className='flex flex-row relative'>
+                  <button 
+                    className='flex relative items-center h-8' 
+                    onClick = {logout}
+                  >
+                    <div className='pl-10'></div>
+                    <div className='p-2'></div>
+                    <p className=''>logout</p>
+                  </button>
+                  <div className='flex items-center left-0 h-8 p-2 '>
+                    <p className=''>/</p>
+                  </div>
+                  <button 
+                    className = 'flex relative items-center h-8' 
+                    onClick = {navigateToLoginPage}
+                  >
+                    <p className=''>login</p>
+                  </button>
+                </div>
               </div>
             </div>
           </Dialog.Panel>
