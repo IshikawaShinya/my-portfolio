@@ -8,7 +8,6 @@ import { UserProvider, LoginUserContext } from "@/app/components/contexts/UserCo
 export default function HomeBoardApp(){
     return(
         <div className="flex flex-col bg-white h-screen w-full">
-            {/* <Header/> */}
             <HeaderBoardApp/>
             <BackgroundImage />
             <ManageForm/>

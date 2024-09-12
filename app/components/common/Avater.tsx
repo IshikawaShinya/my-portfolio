@@ -13,11 +13,7 @@ export default function Avater(props : IProps){
         <div className="flex -space-x-2 overflow-hidden">
             <Image
             alt = ""
-            src = {props.user === null ?(
-                NoUserImage
-            ):(
-                props.user?.profileImg
-            )}
+            src = {props.user?.profileImg ?? NoUserImage} 
             width={30}
             height={30}
             className = "inline-block h-10 w-10 rounded-full ring-2 ring-white"

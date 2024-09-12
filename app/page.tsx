@@ -3,6 +3,8 @@ import MyPage from './features/MyPage/page'
 
 export default function Home() {
   return (
-    <MyPage />
+    <div className=''>
+      <MyPage />
+    </div>
   )
 }

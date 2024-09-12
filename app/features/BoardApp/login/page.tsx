@@ -152,9 +152,9 @@ export default function Login() {
             <p className="mt-10 text-center text-sm text-gray-500">
               Not a member?{' '}
                 <button 
-                className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
-                onClick={()=>router.push(navigation.signup.href)}>
-                    Start a 14 day free trial
+                className = 'font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
+                onClick = {()=>router.push(navigation.signup.href)}>
+                  Start a 14 day free trial
                 </button>
             </p>
             <button
